@@ -28,7 +28,7 @@ class App extends React.Component<Props, State> {
   }
 
   render() {
-    if (!this.props.isExpoFontLoaded) return <AppLoading startAsync={null} onFinish={null} onError={null} />;
+    if (!this.props.isExpoFontLoaded) return <AppLoading />;
     if (this.props.isUserAuthenticated) return <DrawerMenu />
     return <UserModule />
   }
