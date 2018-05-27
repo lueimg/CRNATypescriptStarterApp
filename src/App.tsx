@@ -1,12 +1,13 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import DrawerMenu from './modules/DrawerMenu/DrawerMenu';
-import UserModule from "./modules/User/UserModule";
+// import UserModule from "./modules/User/UserModule";
 import { IStore } from './store/reducers/index';
 import { AppLoading } from 'expo';
 import { ExpoActions } from './store/actions/expoActions';
 import { UserActions } from './store/actions/userActions';
 import firebase from './services/firebaseService';
+import RoutesApp from "./Routes";
 
 type Props = {
     actions: any,
@@ -30,7 +31,8 @@ class App extends React.Component<Props, State> {
   render() {
     if (!this.props.isExpoFontLoaded) return <AppLoading />;
     if (this.props.isUserAuthenticated) return <DrawerMenu />
-    return <UserModule />
+    // return <UserModule />
+    return <RoutesApp />
   }
 }
 
