@@ -7,7 +7,8 @@ import { actionUserFetch } from '../../store/actions/userActions';
 type Props = {
     actions: any,
     navigation: NavigationScreenProp<any>,
-    isLoading: boolean
+    isLoading: boolean,
+    user: any
 };
 
 type State = {
@@ -28,6 +29,12 @@ class Login extends React.Component<Props, State> {
 
   goToRegister = () => {
     this.props.navigation.navigate('Register');
+  }
+
+  componentWillUpdate () {
+    if (this.props.user) {
+      this.props.navigation.navigate('App');
+    }
   }
   
   render() {
@@ -60,7 +67,8 @@ class Login extends React.Component<Props, State> {
 const mapsStateToProps = (state: IStore) => {
   // console.log('*** calls',  state.callInProgress);
   return {
-    isLoading: state.callInProgress > 0
+    isLoading: state.callInProgress > 0,
+    user: state.user || null
   };
 };
 

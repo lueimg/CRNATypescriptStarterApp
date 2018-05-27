@@ -11,7 +11,6 @@ type State = {
 
 class SplashScreen extends React.Component<Props, State> {
 
-
   state = {
       data: [
         { text: 'Welcome' },
@@ -26,7 +25,6 @@ class SplashScreen extends React.Component<Props, State> {
   
 
   render() {
-      console.log('*** pros', this.props)
       return <Slides data={this.state.data} onComplete={this.completeSlides} />;
   }
 }

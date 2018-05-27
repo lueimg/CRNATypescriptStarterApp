@@ -7,7 +7,8 @@ import { NavigationScreenProp } from "react-navigation";
 type Props = {
     actions: any,
     isLoading: boolean,
-    navigation: NavigationScreenProp<any>,    
+    navigation: NavigationScreenProp<any>,
+    user: any
 };
 
 type State = {
@@ -27,9 +28,12 @@ class Register extends React.Component<Props, State> {
   registerUser = () => {
     
   }
-  
-  
 
+  componentWillUpdate () {
+    if (this.props.user) {
+      this.props.navigation.navigate('App');
+    }
+  }
 
   render() {
     return (
@@ -60,7 +64,8 @@ class Register extends React.Component<Props, State> {
 
 const mapsStateToProps = (state: IStore) => {
   return {
-    isLoading: state.callInProgress > 0
+    isLoading: state.callInProgress > 0,
+    user: state.user || null    
   };
 };
 

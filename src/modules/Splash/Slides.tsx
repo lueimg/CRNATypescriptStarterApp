@@ -35,9 +35,9 @@ class Slides extends React.Component<Props, State> {
             { this.props.data && this.props.data.map((slide, index) => (
                     <Slide key={slide.text}>
                         <SlideText>{slide.text}</SlideText>
-                        { index === lastScreenIndex && 
-                            <Button title='Skip' onPress={this.skipSplashScreen} /> 
-                        }
+                        <Button 
+                            title={index === lastScreenIndex ? 'Get started' : 'skip' } 
+                            onPress={this.skipSplashScreen} /> 
                     </Slide>
                 )
             )}
